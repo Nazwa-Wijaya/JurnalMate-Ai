@@ -1,0 +1,6 @@
+{
+  "name": "JurnalMate AI",
+  "description": "Cari paper relevan, pahami intisarinya, dan simpan referensi akademikmu dengan bantuan AI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
