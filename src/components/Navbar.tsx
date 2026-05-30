@@ -4,7 +4,7 @@
  */
 
 import { Link, useLocation } from "react-router-dom";
-import { BookOpen, Search, Bookmark, HelpCircle, Menu, X } from "lucide-react";
+import { BookOpen, Leaf, Search, Bookmark, HelpCircle, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 export function Navbar() {
@@ -23,17 +23,20 @@ export function Navbar() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/85 backdrop-blur-md border-b border-slate-100 shadow-xs">
+    <nav className="sticky top-0 z-50 bg-literaku-ivory/85 backdrop-blur-md border-b border-literaku-sage/20 shadow-2xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center gap-2.5" id="nav-brand">
-              <div className="flex items-center justify-center w-10 h-10 bg-indigo-600 rounded-xl text-white shadow-sm hover:scale-105 transition-all">
-                <BookOpen className="w-5.5 h-5.5" />
+              <div className="flex items-center justify-center w-10 h-10 bg-literaku-emerald rounded-xl text-white shadow-xs hover:scale-105 transition-all relative">
+                <BookOpen className="w-5 h-5 text-white" />
+                <div className="absolute -bottom-1 -right-1 bg-literaku-lime text-literaku-forest p-0.5 rounded-md shadow-xs">
+                  <Leaf className="w-2.5 h-2.5 fill-current" />
+                </div>
               </div>
-              <span className="font-display font-black text-xl tracking-tight text-indigo-950">
-                JurnalMate <span className="text-indigo-600 font-extrabold">AI</span>
+              <span className="font-display font-black text-xl tracking-tight text-literaku-forest">
+                literaKu
               </span>
             </Link>
           </div>
@@ -50,8 +53,8 @@ export function Navbar() {
                   id={`nav-link-${item.name.toLowerCase().replace(/\s/g, "-")}`}
                   className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all ${
                     active
-                      ? "text-indigo-650 bg-indigo-50 font-bold shadow-xs border border-indigo-100/30"
-                      : "text-slate-600 hover:text-indigo-600 hover:bg-slate-100/60"
+                      ? "text-literaku-deep bg-literaku-mint font-bold shadow-3xs border border-literaku-sage/35"
+                      : "text-literaku-textMuted hover:text-literaku-emerald hover:bg-literaku-soft"
                   }`}
                 >
                   <Icon className="w-4.5 h-4.5" />
@@ -65,7 +68,7 @@ export function Navbar() {
           <div className="flex md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="flex items-center justify-center p-2 rounded-lg text-slate-500 hover:text-slate-600 hover:bg-slate-100 focus:outline-none"
+              className="flex items-center justify-center p-2 rounded-lg text-literaku-textMuted hover:text-literaku-forest hover:bg-literaku-soft focus:outline-none"
               aria-label="Toggle menu"
               id="mobile-menu-btn"
             >
@@ -77,7 +80,7 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden border-b border-slate-100 bg-white">
+        <div className="md:hidden border-b border-literaku-sage/20 bg-literaku-ivory">
           <div className="px-2 pt-2 pb-4 space-y-1">
             {navItems.map((item) => {
               const Icon = item.icon;
@@ -90,8 +93,8 @@ export function Navbar() {
                   onClick={() => setIsOpen(false)}
                   className={`flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold transition-all ${
                     active
-                      ? "text-indigo-700 bg-indigo-50 border border-indigo-100/40"
-                      : "text-slate-600 hover:text-indigo-600 hover:bg-slate-50"
+                      ? "text-literaku-deep bg-literaku-mint border border-literaku-sage/35"
+                      : "text-literaku-textMuted hover:text-literaku-emerald hover:bg-literaku-soft"
                   }`}
                 >
                   <Icon className="w-5 h-5 flex-shrink-0" />

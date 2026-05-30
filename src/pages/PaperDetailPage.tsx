@@ -122,7 +122,7 @@ export function PaperDetailPage() {
           onRetry={() => navigate("/search")}
         />
         <div className="text-center mt-4">
-          <Link to="/search" className="text-blue-600 hover:underline inline-flex items-center gap-1">
+          <Link to="/search" className="text-literaku-emerald hover:underline inline-flex items-center gap-1">
             <ArrowLeft className="w-4 h-4" /> Kembali ke halaman pencarian
           </Link>
         </div>
@@ -159,14 +159,14 @@ export function PaperDetailPage() {
             
             {/* Title & Publishers banner */}
             <div className="space-y-2">
-              <h1 className="font-display font-black text-xl sm:text-2xl md:text-3xl tracking-tight text-indigo-950 leading-snug">
+              <h1 className="font-display font-black text-xl sm:text-2xl md:text-3xl tracking-tight text-literaku-forest leading-snug">
                 {paper.title}
               </h1>
               
               {/* Authors List */}
-              <p className="font-sans text-sm text-slate-500">
+              <p className="font-sans text-sm text-literaku-textMuted">
                 Oleh peneliti:{" "}
-                <span className="font-semibold text-slate-800">
+                <span className="font-semibold text-literaku-forest">
                   {paper.authors.length > 0 
                     ? paper.authors.map((a) => a.name).join(", ") 
                     : "Peneliti Publikasi Resmi"}
@@ -175,29 +175,29 @@ export function PaperDetailPage() {
             </div>
 
             {/* Micro badges tags */}
-            <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-slate-500">
+            <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-literaku-textMuted">
               {paper.year && (
-                <span className="flex items-center gap-1 bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200">
-                  <Calendar className="w-3.5 h-3.5 text-indigo-500" />
+                <span className="flex items-center gap-1 bg-literaku-soft px-3 py-1.5 rounded-xl border border-literaku-sage/10">
+                  <Calendar className="w-3.5 h-3.5 text-literaku-emerald" />
                   Tahun {paper.year}
                 </span>
               )}
               {paper.citationCount !== undefined && (
-                <span className="flex items-center gap-1 bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200 font-semibold text-slate-600">
+                <span className="flex items-center gap-1 bg-literaku-soft px-3 py-1.5 rounded-xl border border-literaku-sage/10 font-semibold text-literaku-deep">
                   <Award className="w-3.5 h-3.5 text-amber-500" />
                   {paper.citationCount} Sitasi Tercatat
                 </span>
               )}
               
               {paper.venue && (
-                <span className="flex items-center gap-1 bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200" title={paper.venue}>
-                  <Quote className="w-3.5 h-3.5 text-indigo-550" />
+                <span className="flex items-center gap-1 bg-literaku-soft px-3 py-1.5 rounded-xl border border-literaku-sage/10" title={paper.venue}>
+                  <Quote className="w-3.5 h-3.5 text-literaku-emerald" />
                   {paper.venue}
                 </span>
               )}
 
               {paper.doi && (
-                <span className="flex items-center gap-1 bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200">
+                <span className="flex items-center gap-1 bg-literaku-soft px-3 py-1.5 rounded-xl border border-literaku-sage/10">
                   DOI: {paper.doi}
                 </span>
               )}
@@ -205,10 +205,10 @@ export function PaperDetailPage() {
 
             {/* Research Fields list */}
             {paper.fieldsOfStudy && paper.fieldsOfStudy.length > 0 && (
-              <div className="flex flex-wrap gap-2 pt-4 border-t border-slate-200">
+              <div className="flex flex-wrap gap-2 pt-4 border-t border-literaku-sage/15">
                 <span className="text-xs font-bold text-slate-400 flex items-center select-none uppercase tracking-wider">Bidang:</span>
                 {paper.fieldsOfStudy.map((f, idx) => (
-                  <span key={idx} className="px-2.5 py-1 rounded-lg bg-indigo-50/70 border border-indigo-100/60 text-indigo-805 text-[11px] font-sans font-bold">
+                  <span key={idx} className="px-2.5 py-1 rounded-lg bg-literaku-mint/70 border border-literaku-sage/20 text-literaku-deep text-[11px] font-sans font-bold">
                     {f}
                   </span>
                 ))}
@@ -216,9 +216,9 @@ export function PaperDetailPage() {
             )}
 
             {/* Core Abstract Text */}
-            <div className="space-y-2 border-t border-slate-200 pt-5">
-              <h3 className="font-display font-bold text-indigo-950 text-sm uppercase tracking-wider">Abstrak Jurnal</h3>
-              <p className="font-sans text-sm md:text-base text-slate-600 leading-relaxed font-sans select-all indent-8">
+            <div className="space-y-2 border-t border-literaku-sage/15 pt-5">
+              <h3 className="font-display font-bold text-literaku-forest text-sm uppercase tracking-wider">Abstrak Jurnal</h3>
+              <p className="font-sans text-sm md:text-base text-literaku-textMuted leading-relaxed font-sans select-all indent-8">
                 {paper.abstract || "Naskah publikasi ini tidak menyediakan deskripsi abstrak publik dalam catatan metadata Semantic Scholar."}
               </p>
             </div>
@@ -229,7 +229,7 @@ export function PaperDetailPage() {
                 href={paper.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs text-indigo-650 hover:text-indigo-800 font-bold hover:underline border-t border-slate-200 pt-4 w-full"
+                className="inline-flex items-center gap-1.5 text-xs text-literaku-emerald hover:text-literaku-deep font-bold hover:underline border-t border-literaku-sage/15 pt-4 w-full"
                 id="external-publisher-link"
               >
                 Kunjungi Sumber Asli / Publisher Semantic Scholar
@@ -244,8 +244,8 @@ export function PaperDetailPage() {
         <div className="space-y-6">
           
           {/* Quick Access cards for downloads, saves */}
-          <div className="bg-white border border-slate-200 rounded-3xl p-6 shadow-2xs space-y-4">
-            <h3 className="font-display font-bold text-indigo-950 text-sm">Aksi Referensi</h3>
+          <div className="bg-white border border-literaku-sage/35 rounded-3xl p-6 shadow-2xs space-y-4">
+            <h3 className="font-display font-bold text-literaku-forest text-sm">Aksi Referensi</h3>
             
             <div className="grid grid-cols-1 gap-2.5">
               {/* Save Paper */}
@@ -255,7 +255,7 @@ export function PaperDetailPage() {
               <DownloadButton pdfUrl={paper.pdfUrl} isFullWidth />
             </div>
 
-            <p className="text-[11px] text-slate-400 text-center leading-relaxed font-sans font-medium">
+            <p className="text-[11px] text-literaku-textMuted text-center leading-relaxed font-sans font-medium">
               Menyimpan rujukan akan menaruhnya di Library offline lokal Anda tanpa harus mendaftar akun.
             </p>
           </div>
@@ -273,21 +273,21 @@ export function PaperDetailPage() {
           
           {/* Custom query input if they want to associate paper with their specific thesis title */}
           {!summary && !summaryLoading && (
-            <div className="bg-white border border-slate-205 rounded-3xl p-6 md:p-8 shadow-xs space-y-5 text-center md:text-left">
+            <div className="bg-white border border-literaku-sage/30 rounded-3xl p-6 md:p-8 shadow-xs space-y-5 text-center md:text-left">
               <div className="flex flex-col md:flex-row items-center gap-5 justify-between">
                 <div className="space-y-1 md:flex-1">
-                  <h3 className="font-display font-black text-indigo-950 text-base md:text-lg tracking-tight flex items-center justify-center md:justify-start gap-2">
-                    <Sparkles className="w-5 h-5 text-indigo-650 animate-pulse" />
+                  <h3 className="font-display font-black text-literaku-forest text-base md:text-lg tracking-tight flex items-center justify-center md:justify-start gap-2">
+                    <Sparkles className="w-5 h-5 text-literaku-emerald animate-pulse" />
                     Belum Paham Isi Paper Ini?
                   </h3>
-                  <p className="font-sans text-xs md:text-sm text-slate-500 font-medium">
+                  <p className="font-sans text-xs md:text-sm text-literaku-textMuted font-medium">
                     Gunakan Gemini AI untuk meringkas abstrak, metode, kesimpulan, dan menganalisis mengapa paper ini cocok untuk rujukan skripsi Anda.
                   </p>
                 </div>
                 
                 <button
                   onClick={() => triggerAISummary(paper)}
-                  className="flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs md:text-sm rounded-xl transition-all shadow-md shadow-indigo-100/40 active:scale-95 cursor-pointer flex-shrink-0"
+                  className="flex items-center gap-2 px-6 py-3 bg-literaku-emerald hover:bg-literaku-deep text-white font-bold text-xs md:text-sm rounded-xl transition-all shadow-md shadow-literaku-mint/40 active:scale-95 cursor-pointer flex-shrink-0"
                   id="generate-summary-btn-main"
                 >
                   <Sparkles className="w-4 h-4 text-white" />
@@ -296,8 +296,8 @@ export function PaperDetailPage() {
               </div>
 
               {/* Relevance topic form */}
-              <div className="border-t border-slate-200 pt-4 text-left">
-                <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">
+              <div className="border-t border-literaku-sage/20 pt-4 text-left">
+                <label className="block text-xs font-bold text-slate-705 mb-1.5 uppercase tracking-wider">
                   Hubungkan dengan Judul/Topik Penelitian Anda (Opsional):
                 </label>
                 <input
@@ -305,10 +305,10 @@ export function PaperDetailPage() {
                   value={queryContext}
                   onChange={(e) => setQueryContext(e.target.value)}
                   placeholder="Contoh: 'Pengaruh stres akademis terhadap insomnia pada Gen Z'"
-                  className="w-full bg-slate-50 border border-slate-200 focus:border-indigo-500 focus:bg-white rounded-xl px-4 py-2.5 text-xs md:text-sm text-slate-700 outline-none transition-all placeholder-slate-400 focus:ring-1 focus:ring-indigo-100"
+                  className="w-full bg-slate-50 border border-slate-205 focus:border-literaku-emerald focus:bg-white rounded-xl px-4 py-2.5 text-xs md:text-sm text-slate-700 outline-none transition-all placeholder-slate-400 focus:ring-1 focus:ring-literaku-mint/40"
                   id="summary-topic-context"
                 />
-                <span className="text-[10px] text-slate-450 block mt-1 font-sans">
+                <span className="text-[10px] text-literaku-textMuted block mt-1 font-sans">
                   AI akan secara cerdas mengaitkan abstrak ini dengan topik Anda agar bab Latar Belakang tulisan Anda selaras.
                 </span>
               </div>
@@ -337,7 +337,7 @@ export function PaperDetailPage() {
               <div className="flex items-center gap-2 justify-end">
                 <button
                   onClick={() => triggerAISummary(paper)}
-                  className="text-xs font-semibold text-slate-500 hover:text-indigo-600 transition-colors inline-flex items-center gap-1.5 p-1.5"
+                  className="text-xs font-semibold text-literaku-textMuted hover:text-literaku-emerald transition-colors inline-flex items-center gap-1.5 p-1.5"
                   id="ref-summary-btn"
                 >
                   <RefreshCw className="w-3 h-3 animate-spin duration-3000" />

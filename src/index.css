@@ -5,4 +5,16 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Outfit", "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-literaku-forest: #123026;
+  --color-literaku-emerald: #2F7D5C;
+  --color-literaku-deep: #1F4D3A;
+  --color-literaku-sage: #A8CBB7;
+  --color-literaku-mint: #DDF3E7;
+  --color-literaku-ivory: #F8FAF6;
+  --color-literaku-soft: #F1F7F3;
+  --color-literaku-pale: #F5FBF7;
+  --color-literaku-textMuted: #6B7C72;
+  --color-literaku-teal: #3A9D8A;
+  --color-literaku-lime: #B9E769;
 }

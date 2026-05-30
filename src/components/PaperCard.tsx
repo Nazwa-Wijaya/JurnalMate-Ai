@@ -36,7 +36,7 @@ export function PaperCard({ paper, queryContext = "", onSaveStateChange }: Paper
 
   return (
     <div
-      className="bg-white border border-slate-200 hover:border-indigo-400 hover:shadow-slate-100/45 hover:shadow-md rounded-2xl p-5 md:p-6 transition-all flex flex-col gap-4 animate-in fade-in duration-200"
+      className="bg-white border border-literaku-sage/30 hover:border-literaku-emerald hover:shadow-literaku-mint/30 hover:shadow-md rounded-3xl p-5 md:p-6 transition-all flex flex-col gap-4 animate-in fade-in duration-200"
       id={`paper-card-${paper.paperId}`}
     >
       {/* Title & Badge */}
@@ -45,14 +45,14 @@ export function PaperCard({ paper, queryContext = "", onSaveStateChange }: Paper
           <Link
             to={`/paper/${paper.paperId}`}
             state={{ queryContext }}
-            className="group/title flex items-start gap-1 text-slate-900 hover:text-indigo-700 transition-colors"
+            className="group/title flex items-start gap-1 text-literaku-forest hover:text-literaku-emerald transition-colors"
           >
-            <h3 className="font-display font-bold text-base md:text-lg tracking-tight leading-snug group-hover/title:underline text-indigo-950">
+            <h3 className="font-display font-bold text-base md:text-lg tracking-tight leading-snug group-hover/title:underline text-literaku-forest">
               {paper.title}
             </h3>
           </Link>
-          <p className="text-xs text-slate-500 font-sans italic">
-            Oleh: <span className="font-semibold text-slate-700">{formattedAuthors()}</span>
+          <p className="text-xs text-literaku-textMuted font-sans italic">
+            Oleh: <span className="font-semibold text-literaku-deep">{formattedAuthors()}</span>
           </p>
         </div>
         
@@ -70,21 +70,21 @@ export function PaperCard({ paper, queryContext = "", onSaveStateChange }: Paper
       </div>
 
       {/* Abstract snapshot */}
-      <p className="text-xs md:text-sm text-slate-500 leading-relaxed font-sans line-clamp-3">
+      <p className="text-xs md:text-sm text-literaku-textMuted leading-relaxed font-sans line-clamp-3">
         {displayAbstract}
       </p>
 
       {/* Relevance Reasons Checklist - marked green as specified */}
       {paper.relevanceReasons && paper.relevanceReasons.length > 0 && (
-        <div className="bg-emerald-50/40 border border-emerald-100/50 p-3.5 rounded-xl space-y-1.5" id={`relevance-reasons-${paper.paperId}`}>
-          <div className="text-[10px] uppercase font-bold tracking-wider text-emerald-700 font-sans flex items-center gap-1.5">
-            <Sparkles className="w-3.5 h-3.5" />
-            Analisis Relevansi AI:
+        <div className="bg-literaku-soft/70 border border-literaku-sage/20 p-3.5 rounded-2xl space-y-1.5" id={`relevance-reasons-${paper.paperId}`}>
+          <div className="text-[10px] uppercase font-bold tracking-wider text-literaku-emerald font-sans flex items-center gap-1.5">
+            <Sparkles className="w-3.5 h-3.5 text-literaku-emerald" />
+            Analisis Relevansi (Fitur AI):
           </div>
           <ul className="space-y-1">
             {paper.relevanceReasons.map((reason, idx) => (
-              <li key={idx} className="text-xs text-slate-700 flex items-start gap-1.5 font-sans leading-relaxed">
-                <span className="text-emerald-500 font-bold font-sans select-none mt-0.5 flex-shrink-0">✓</span>
+              <li key={idx} className="text-xs text-literaku-deep flex items-start gap-1.5 font-sans leading-relaxed">
+                <span className="text-literaku-emerald font-bold font-sans select-none mt-0.5 flex-shrink-0">✓</span>
                 <span>{reason}</span>
               </li>
             ))}
@@ -93,37 +93,37 @@ export function PaperCard({ paper, queryContext = "", onSaveStateChange }: Paper
       )}
 
       {/* Tags / Meta block */}
-      <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500 font-mono">
+      <div className="flex flex-wrap items-center gap-3 text-xs text-literaku-textMuted font-mono">
         {paper.year && (
-          <div className="flex items-center gap-1.5 bg-slate-50 px-2.5 py-1.5 rounded-xl border border-slate-200/60">
-            <Calendar className="w-3.5 h-3.5 text-indigo-500/80" />
+          <div className="flex items-center gap-1.5 bg-literaku-soft px-2.5 py-1.5 rounded-xl border border-literaku-sage/10">
+            <Calendar className="w-3.5 h-3.5 text-literaku-emerald" />
             <span>Tahun {paper.year}</span>
           </div>
         )}
         
         {paper.citationCount !== undefined && (
-          <div className="flex items-center gap-1.5 bg-slate-50 px-2.5 py-1.5 rounded-xl border border-slate-200/60 font-semibold text-slate-600">
+          <div className="flex items-center gap-1.5 bg-literaku-soft px-2.5 py-1.5 rounded-xl border border-literaku-sage/10 font-semibold text-literaku-deep">
             <Award className="w-3.5 h-3.5 text-amber-500" />
             <span>{paper.citationCount} Sitasi</span>
           </div>
         )}
 
         {paper.venue && (
-          <div className="hidden sm:flex items-center gap-1.5 bg-slate-50 px-2.5 py-1.5 rounded-xl border border-slate-200/60 max-w-[200px] truncate" title={paper.venue}>
-            <BookOpen className="w-3.5 h-3.5 text-indigo-500/80" />
+          <div className="hidden sm:flex items-center gap-1.5 bg-literaku-soft px-2.5 py-1.5 rounded-xl border border-literaku-sage/10 max-w-[200px] truncate" title={paper.venue}>
+            <BookOpen className="w-3.5 h-3.5 text-literaku-emerald" />
             <span className="truncate">{paper.venue}</span>
           </div>
         )}
       </div>
 
       {/* Buttons / Actions */}
-      <div className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-200 pt-4 mt-auto">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-t border-literaku-sage/15 pt-4 mt-auto">
         <div className="flex items-center gap-2">
           {/* Detail Link */}
           <Link
             to={`/paper/${paper.paperId}`}
             state={{ queryContext }}
-            className="flex items-center gap-1.5 px-3.5 py-2 hover:bg-slate-50 border border-slate-200 text-slate-700 hover:text-indigo-600 hover:border-indigo-200 rounded-xl font-bold text-xs md:text-sm transition-all"
+            className="flex items-center gap-1.5 px-3.5 py-2 hover:bg-literaku-mint/40 border border-literaku-sage/40 text-literaku-deep hover:text-literaku-emerald hover:border-literaku-emerald rounded-xl font-bold text-xs md:text-sm transition-all"
             id={`details-btn-${paper.paperId}`}
           >
             Lihat Detail &amp; Intisari
@@ -132,10 +132,10 @@ export function PaperCard({ paper, queryContext = "", onSaveStateChange }: Paper
           <Link
             to={`/paper/${paper.paperId}?summary=true`}
             state={{ queryContext }}
-            className="flex items-center gap-1.5 px-3.5 py-2 bg-indigo-50/70 border border-indigo-100 hover:border-indigo-305 text-indigo-750 hover:bg-indigo-100/60 rounded-xl font-bold text-xs md:text-sm transition-all"
+            className="flex items-center gap-1.5 px-3.5 py-2 bg-literaku-mint/70 border border-literaku-sage/30 hover:border-literaku-emerald text-literaku-deep bg-literaku-mint hover:bg-literaku-mint/80 rounded-xl font-bold text-xs md:text-sm transition-all"
             id={`gen-summary-btn-${paper.paperId}`}
           >
-            <Sparkles className="w-3.5 h-3.5 text-indigo-600 animate-pulse" />
+            <Sparkles className="w-3.5 h-3.5 text-literaku-emerald animate-pulse" />
             Intisari AI
           </Link>
         </div>

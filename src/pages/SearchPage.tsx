@@ -18,33 +18,33 @@ type SortOption = "relevance" | "year" | "citations";
 const DOMAIN_LABELS: Record<string, { label: string; bg: string; text: string; border: string }> = {
   nutrition_health: {
     label: "Gizi & Kesehatan (Kalori & Estimasi Makanan)",
-    bg: "bg-emerald-50 text-emerald-700 border-emerald-200",
-    text: "text-emerald-700",
-    border: "border-emerald-200"
+    bg: "bg-literaku-soft text-literaku-emerald border-literaku-sage/35",
+    text: "text-literaku-emerald",
+    border: "border-literaku-sage/35"
   },
   mental_health_social_media: {
     label: "Kesehatan Mental & Media Sosial Gen Z",
-    bg: "bg-rose-50 text-rose-700 border-rose-200",
-    text: "text-rose-700",
-    border: "border-rose-200"
+    bg: "bg-orange-50 text-orange-850 border-orange-200",
+    text: "text-orange-850",
+    border: "border-orange-200"
   },
   education_prediction: {
     label: "Prediksi Akademik & Evaluasi Pendidikan",
-    bg: "bg-sky-50 text-sky-700 border-sky-200",
-    text: "text-sky-700",
-    border: "border-sky-200"
+    bg: "bg-literaku-mint text-literaku-deep border-literaku-sage/40",
+    text: "text-literaku-deep",
+    border: "border-literaku-sage/40"
   },
   aquaculture_iot: {
     label: "Sistem IoT & Akuakultur Pintar (Tambak)",
-    bg: "bg-amber-50 text-amber-700 border-amber-200",
-    text: "text-amber-700",
-    border: "border-amber-200"
+    bg: "bg-amber-50 text-amber-800 border-amber-250",
+    text: "text-amber-800",
+    border: "border-amber-250"
   },
   other_general: {
     label: "Riset Akademik Umum",
-    bg: "bg-indigo-50 text-indigo-700 border-indigo-200",
-    text: "text-indigo-700",
-    border: "border-indigo-200"
+    bg: "bg-literaku-mint/40 text-literaku-deep border-literaku-sage/20",
+    text: "text-literaku-deep",
+    border: "border-literaku-sage/20"
   }
 };
 
@@ -109,11 +109,11 @@ export function SearchPage() {
       
       {/* Title block */}
       <div className="space-y-2 text-center md:text-left mb-8">
-        <h1 className="font-display font-black text-2xl md:text-3xl text-indigo-950 tracking-tight flex items-center justify-center md:justify-start gap-2.5">
-          <Sparkles className="w-6 h-6 text-indigo-600 animate-pulse" />
+        <h1 className="font-display font-black text-2xl md:text-3xl text-literaku-forest tracking-tight flex items-center justify-center md:justify-start gap-2.5">
+          <Sparkles className="w-6 h-6 text-literaku-emerald animate-pulse" />
           Ekspedisi Pencarian Paper
         </h1>
-        <p className="font-sans text-sm text-slate-500 max-w-xl">
+        <p className="font-sans text-sm text-literaku-textMuted max-w-xl">
           Temukan paper yang kredibel secara etis dan hitung estimasi relevansinya secara instan dengan mesin rekomendasi AI.
         </p>
       </div>
@@ -142,7 +142,7 @@ export function SearchPage() {
                   {DOMAIN_LABELS[response.detectedDomain].label}
                 </span>
               ) : (
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200">
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-literaku-mint text-literaku-deep border border-literaku-sage/30">
                   {response.detectedDomain || "Riset Akademik Umum"}
                 </span>
               )}
@@ -154,12 +154,12 @@ export function SearchPage() {
                   Translasi & Ekspansi Kata Kunci Akademik:
                 </span>
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-xs px-2 py-1 bg-slate-100 text-slate-600 rounded-lg border border-slate-200 font-medium">
+                  <span className="text-xs px-2 py-1 bg-literaku-soft text-literaku-forest rounded-lg border border-literaku-sage/30 font-medium">
                     "{response.originalQuery}"
                   </span>
-                  <span className="text-xs text-slate-300 font-bold">➔</span>
+                  <span className="text-xs text-slate-350 font-bold">➔</span>
                   {response.expandedQueries.slice(0, 3).map((eq, idx) => (
-                    <span key={idx} className="text-[11px] px-2 py-1 bg-indigo-50/50 text-indigo-600 border border-indigo-100/80 rounded-lg font-mono font-medium">
+                    <span key={idx} className="text-[11px] px-2 py-1 bg-literaku-mint/50 text-literaku-deep border border-literaku-sage/20 rounded-lg font-mono font-medium">
                       "{eq}"
                     </span>
                   ))}
@@ -176,14 +176,14 @@ export function SearchPage() {
               </span>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <span className="text-xs text-slate-450 block">Ditemukan S2/API:</span>
-                  <div className="text-2xl font-bold font-display text-indigo-900">
+                  <span className="text-xs text-literaku-textMuted block">Ditemukan S2/API:</span>
+                  <div className="text-2xl font-bold font-display text-literaku-deep">
                     {response.totalFoundBeforeFiltering}
                   </div>
                 </div>
                 <div>
-                  <span className="text-xs text-slate-450 block">Lulus Ambang Batas:</span>
-                  <div className="text-2xl font-bold font-display text-emerald-600">
+                  <span className="text-xs text-literaku-textMuted block">Lulus Ambang Batas:</span>
+                  <div className="text-2xl font-bold font-display text-literaku-emerald">
                     {response.totalAfterFiltering}
                   </div>
                 </div>
@@ -199,16 +199,16 @@ export function SearchPage() {
       {/* Fast search recommendation chips */}
       {!loading && !error && response?.suggestedKeywords && response.suggestedKeywords.length > 0 && (
         <div className="mb-8 space-y-2.5" id="suggested-keywords-chips">
-          <div className="text-xs font-sans font-bold uppercase tracking-wider text-slate-450 flex items-center gap-1.5">
-            <Award className="w-4 h-4 text-indigo-500" />
-            Topik & Istilah Terkait Untuk Dieksplorasi:
+          <div className="text-xs font-sans font-bold uppercase tracking-wider text-literaku-forest flex items-center gap-1.5">
+            <Award className="w-4 h-4 text-literaku-emerald" />
+            Topik & Istilah Terkat Untuk Dieksplorasi:
           </div>
           <div className="flex flex-wrap gap-2">
             {response.suggestedKeywords.map((kw, idx) => (
               <button
                 key={idx}
                 onClick={() => handleSearch(kw, filters)}
-                className="text-xs px-3.5 py-1.5 bg-slate-50 hover:bg-indigo-50 text-slate-600 hover:text-indigo-700 border border-slate-200 hover:border-indigo-200 rounded-full font-sans font-medium transition-all duration-150 active:scale-95 cursor-pointer"
+                className="text-xs px-3.5 py-1.5 bg-white hover:bg-literaku-mint text-literaku-deep border border-literaku-sage/35 hover:border-literaku-emerald rounded-full font-sans font-medium transition-all duration-150 active:scale-95 cursor-pointer shadow-3xs"
               >
                 # {kw}
               </button>
@@ -219,29 +219,29 @@ export function SearchPage() {
 
       {/* Sorting panel & outcomes */}
       {papers.length > 0 && !loading && (
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-4 mb-6" id="sorting-panel-container">
-          <div className="text-slate-600 text-sm font-sans font-medium">
-            Menampilkan <span className="font-bold text-indigo-600">{papers.length}</span> paper rujukan berkualitas
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-literaku-sage/25 pb-4 mb-6" id="sorting-panel-container">
+          <div className="text-literaku-forest text-sm font-sans font-medium">
+            Menampilkan <span className="font-bold text-literaku-emerald">{papers.length}</span> paper rujukan berkualitas
           </div>
           
           {/* Sorting choices selector */}
           <div className="flex items-center gap-2">
-            <span className="text-slate-500 text-xs font-sans font-semibold flex items-center gap-1">
-              <ListFilter className="w-3.5 h-3.5" />
+            <span className="text-literaku-textMuted text-xs font-sans font-semibold flex items-center gap-1">
+              <ListFilter className="w-3.5 h-3.5 text-literaku-emerald" />
               Urutkan berdasarkan:
             </span>
             <div className="relative">
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as SortOption)}
-                className="appearance-none bg-slate-50 hover:bg-slate-100 border border-slate-250 rounded-xl px-4 py-2 pr-9 text-xs font-semibold text-slate-700 cursor-pointer outline-none focus:border-indigo-500 transition-all font-sans"
+                className="appearance-none bg-white hover:bg-literaku-soft border border-literaku-sage/40 rounded-xl px-4 py-2 pr-9 text-xs font-semibold text-literaku-deep cursor-pointer outline-none focus:border-literaku-emerald transition-all font-sans"
                 id="search-sorting-select"
               >
                 <option value="relevance">Skor Relevansi (Terbaik)</option>
                 <option value="year">Tahun Terbaru</option>
                 <option value="citations">Sitasi Terbanyak</option>
               </select>
-              <ChevronDown className="w-3.5 h-3.5 text-slate-500 absolute top-2.5 right-3.5 pointer-events-none" />
+              <ChevronDown className="w-3.5 h-3.5 text-literaku-textMuted absolute top-2.5 right-3.5 pointer-events-none" />
             </div>
           </div>
         </div>
@@ -277,8 +277,8 @@ export function SearchPage() {
             </div>
 
             {response?.suggestedKeywords && response.suggestedKeywords.length > 0 && (
-              <div className="space-y-3 pt-5 border-t border-slate-100">
-                <span className="text-[10px] font-sans font-bold uppercase tracking-wider text-slate-400 block">
+              <div className="space-y-3 pt-5 border-t border-literaku-sage/25">
+                <span className="text-[10px] font-sans font-bold uppercase tracking-wider text-literaku-textMuted block">
                   Coba Salah Satu Istilah Rekomendasi AI Berikut:
                 </span>
                 <div className="flex flex-wrap justify-center gap-2">
@@ -286,7 +286,7 @@ export function SearchPage() {
                     <button
                       key={idx}
                       onClick={() => handleSearch(kw, filters)}
-                      className="text-xs px-3.5 py-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-100 rounded-full font-sans font-medium transition-all duration-150 cursor-pointer"
+                      className="text-xs px-3.5 py-2 bg-literaku-mint hover:bg-literaku-sage/35 text-literaku-deep border border-literaku-sage/40 rounded-full font-sans font-medium transition-all duration-150 cursor-pointer"
                     >
                       # {kw}
                     </button>

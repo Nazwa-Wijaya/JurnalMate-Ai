@@ -62,6 +62,6 @@ export async function checkServerHealth(): Promise<{ status: string; app: string
     if (!response.ok) throw new Error("Server unhealthy");
     return response.json();
   } catch (err) {
-    return { status: "error", app: "JurnalMate AI" };
+    return { status: "error", app: "literaKu" };
   }
 }

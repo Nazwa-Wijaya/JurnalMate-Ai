@@ -690,7 +690,7 @@ const DEFAULT_PAPERS = [
 app.get("/api/health", (req, res) => {
   res.json({
     status: "ok",
-    app: "JurnalMate AI"
+    app: "literaKu"
   });
 });
 
@@ -701,7 +701,7 @@ async function fetchSemanticScholar(queryStr: string, apiLimit: number): Promise
     const s2Url = `https://api.semanticscholar.org/graph/v1/paper/search?query=${encodeURIComponent(queryStr)}&limit=${apiLimit}&fields=${fieldsParam}`;
     
     const headers: Record<string, string> = {
-      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 JurnalMateAI/1.0",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 literaKu/1.0",
       "Accept": "application/json"
     };
     
@@ -744,7 +744,7 @@ async function fetchOpenAlex(queryStr: string, apiLimit: number): Promise<any[]>
   try {
     const url = `https://api.openalex.org/works?search=${encodeURIComponent(queryStr)}&per_page=${apiLimit}`;
     const headers = {
-      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) JurnalMateAI/1.0 (nazwawijaya89@gmail.com)"
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) literaKu/1.0 (nazwawijaya89@gmail.com)"
     };
     const response = await fetch(url, { headers });
     if (!response.ok) return [];
@@ -1211,7 +1211,7 @@ async function fetchOpenAlexDetail(paperId: string): Promise<any | null> {
   try {
     const url = `https://api.openalex.org/works/${paperId}`;
     const headers = {
-      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) JurnalMateAI/1.0 (nazwawijaya89@gmail.com)"
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) literaKu/1.0 (nazwawijaya89@gmail.com)"
     };
     const response = await fetch(url, { headers });
     if (!response.ok) return null;
@@ -1271,7 +1271,7 @@ app.get("/api/paper/:id", async (req, res) => {
     const s2Url = `https://api.semanticscholar.org/graph/v1/paper/${paperId}?fields=${fieldsParam}`;
     
     const headers: Record<string, string> = {
-      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 JurnalMateAI/1.0",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 literaKu/1.0",
       "Accept": "application/json"
     };
     if (process.env.SEMANTIC_SCHOLAR_API_KEY) {
@@ -1375,7 +1375,7 @@ async function startServer() {
   }
 
   app.listen(PORT, "0.0.0.0", () => {
-    console.log(`[JurnalMate AI] Server is up on http://localhost:${PORT}`);
+    console.log(`[literaKu] Server is up on http://localhost:${PORT}`);
   });
 }
 

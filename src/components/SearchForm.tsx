@@ -70,7 +70,7 @@ export function SearchForm({ initialQuery = "", initialFilters = {}, onSearch, i
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-4xl mx-auto" id="search-form-el">
       {/* Search Input Group */}
-      <div className="relative flex items-center bg-white rounded-2xl border border-slate-200/90 shadow-sm focus-within:border-indigo-500 focus-within:ring-4 focus-within:ring-indigo-100/60 p-1.5 transition-all mb-4">
+      <div className="relative flex items-center bg-white rounded-2xl border border-slate-200/90 shadow-sm focus-within:border-literaku-emerald focus-within:ring-4 focus-within:ring-literaku-mint/60 p-1.5 transition-all mb-4">
         <div className="flex-shrink-0 pl-3.5 pr-1 text-slate-400">
           <Search className="w-5.5 h-5.5" />
         </div>
@@ -90,8 +90,8 @@ export function SearchForm({ initialQuery = "", initialFilters = {}, onSearch, i
             onClick={() => setShowAdvanced(!showAdvanced)}
             className={`p-2.5 rounded-xl border transition-colors cursor-pointer ${
               showAdvanced || yearFrom || yearTo || field !== "all" || openAccessOnly
-                ? "bg-indigo-50/60 border-indigo-200 text-indigo-700 hover:bg-indigo-100/80"
-                : "bg-white border-slate-150 text-slate-500 hover:text-indigo-750 hover:bg-indigo-50/20"
+                ? "bg-literaku-mint/60 border-literaku-sage/35 text-literaku-deep hover:bg-literaku-mint/90"
+                : "bg-white border-slate-150 text-slate-500 hover:text-literaku-emerald hover:bg-literaku-soft/40"
             }`}
             title="Filter Pencarian Lebih Spesifik"
             id="filter-toggle-btn"
@@ -101,7 +101,7 @@ export function SearchForm({ initialQuery = "", initialFilters = {}, onSearch, i
           <button
             type="submit"
             disabled={isLoading || !q.trim()}
-            className="px-5 py-2.5 md:py-3 bg-indigo-600 hover:bg-indigo-700 active:scale-[0.98] text-white rounded-xl text-sm font-semibold tracking-wide transition-all shadow-md shadow-indigo-100/40 disabled:opacity-50 disabled:pointer-events-none cursor-pointer"
+            className="px-5 py-2.5 md:py-3 bg-literaku-emerald hover:bg-literaku-deep active:scale-[0.98] text-white rounded-xl text-sm font-semibold tracking-wide transition-all shadow-md shadow-literaku-mint/40 disabled:opacity-50 disabled:pointer-events-none cursor-pointer"
             id="search-submit-btn"
           >
             {isLoading ? "Mencari..." : "Mulai Cari"}
@@ -118,7 +118,7 @@ export function SearchForm({ initialQuery = "", initialFilters = {}, onSearch, i
               key={idx}
               type="button"
               onClick={() => handleChipsClick(chip)}
-              className="px-3.5 py-1.5 rounded-full bg-white hover:bg-indigo-50 hover:text-indigo-600 hover:border-indigo-250 border border-slate-200 text-slate-600 font-sans font-medium transition-all shadow-2xs hover:scale-[1.01] cursor-pointer"
+              className="px-3.5 py-1.5 rounded-full bg-white hover:bg-literaku-mint hover:text-literaku-emerald hover:border-literaku-emerald border border-slate-200 text-slate-600 font-sans font-medium transition-all shadow-2xs hover:scale-[1.01] cursor-pointer"
             >
               “{chip}”
             </button>
@@ -133,7 +133,7 @@ export function SearchForm({ initialQuery = "", initialFilters = {}, onSearch, i
           {/* Year Range */}
           <div className="space-y-1.5 col-span-1 sm:col-span-2">
             <label className="text-xs font-semibold text-slate-700 flex items-center gap-1.5">
-              <Calendar className="w-3.5 h-3.5 text-indigo-555" />
+              <Calendar className="w-3.5 h-3.5 text-literaku-emerald" />
               Tahun Publikasi (Rentang)
             </label>
             <div className="flex items-center gap-2">
@@ -144,7 +144,7 @@ export function SearchForm({ initialQuery = "", initialFilters = {}, onSearch, i
                 value={yearFrom}
                 onChange={(e) => setYearFrom(e.target.value)}
                 placeholder="Awal (misal: 2020)"
-                className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-700 outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-200"
+                className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-700 outline-none focus:border-literaku-emerald focus:ring-1 focus:ring-literaku-sage"
                 id="filter-year-from"
                 disabled={isLoading}
               />
@@ -156,7 +156,7 @@ export function SearchForm({ initialQuery = "", initialFilters = {}, onSearch, i
                 value={yearTo}
                 onChange={(e) => setYearTo(e.target.value)}
                 placeholder="Akhir (misal: 2026)"
-                className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-700 outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-200"
+                className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-700 outline-none focus:border-literaku-emerald focus:ring-1 focus:ring-literaku-sage"
                 id="filter-year-to"
                 disabled={isLoading}
               />
@@ -166,13 +166,13 @@ export function SearchForm({ initialQuery = "", initialFilters = {}, onSearch, i
           {/* Field of Study */}
           <div className="space-y-1.5">
             <label className="text-xs font-semibold text-slate-700 flex items-center gap-1.5">
-              <Database className="w-3.5 h-3.5 text-indigo-555" />
+              <Database className="w-3.5 h-3.5 text-literaku-emerald" />
               Bidang Studi
             </label>
             <select
               value={field}
               onChange={(e) => setField(e.target.value)}
-              className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-700 outline-none focus:border-indigo-500 cursor-pointer"
+              className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-700 outline-none focus:border-literaku-emerald cursor-pointer"
               id="filter-field"
               disabled={isLoading}
             >
@@ -192,7 +192,7 @@ export function SearchForm({ initialQuery = "", initialFilters = {}, onSearch, i
             <select
               value={limit}
               onChange={(e) => setLimit(Number(e.target.value))}
-              className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-700 outline-none focus:border-indigo-500 cursor-pointer"
+              className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-700 outline-none focus:border-literaku-emerald cursor-pointer"
               id="filter-limit"
               disabled={isLoading}
             >
@@ -214,7 +214,7 @@ export function SearchForm({ initialQuery = "", initialFilters = {}, onSearch, i
                 className="sr-only peer"
                 disabled={isLoading}
               />
-              <div className="w-5 h-5 rounded-md border border-slate-300 bg-white peer-checked:bg-indigo-600 peer-checked:border-indigo-600 flex items-center justify-center transition-all group-hover:border-indigo-400">
+              <div className="w-5 h-5 rounded-md border border-slate-300 bg-white peer-checked:bg-literaku-emerald peer-checked:border-literaku-emerald flex items-center justify-center transition-all group-hover:border-literaku-sage">
                 <Check className="w-3.5 h-3.5 text-white stroke-[3.5]" />
               </div>
               <span className="text-xs font-medium text-slate-600 group-hover:text-slate-800">
